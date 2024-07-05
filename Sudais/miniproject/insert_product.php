@@ -31,7 +31,7 @@
     </div>
     <div class="mb-3">
       <label for="stock">stock:</label>
-      <input type="text" class="form-control" id="stock" placeholder="Enter rating" name="pro_rating">
+      <input type="text" class="form-control" id="stock" placeholder="Enter rating" name="pro_stock">
     </div>
     <div class="mb-3">
       <label for="rating">rating:</label>
@@ -39,7 +39,7 @@
     </div>
 
     
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" name="add_product">Submit</button>
   </form>
 </div>
 

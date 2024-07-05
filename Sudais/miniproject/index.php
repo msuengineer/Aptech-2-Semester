@@ -21,9 +21,17 @@ if($conn -> connect_errno){
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Ga+Maamli&display=swap" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
   <style>
+    body{
+      font-family: "Ga Maamli", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+    }
     td{
         background-color: antiquewhite;
     }
@@ -47,6 +55,10 @@ if($conn -> connect_errno){
         background-color: green;
         color: aliceblue;
     }
+     .button-blue{
+        background-color: green;
+        color: blue;
+    }
     tbody{
         background-color: rgb(243, 236, 236);
     }
@@ -54,13 +66,20 @@ if($conn -> connect_errno){
         background-color: aliceblue;
         
     }
+    .text {
+      font-family: "Ga Maamli", sans-serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+
   </style>
 </head>
 <body>
 
 <div class="container">
   <h2>Products</h2>
-  <p>All Products that found in our data-base:</p>            
+  <p class="text">All Products that found in our data-base:</p>  
+  <a href="insert_product.php"><button class="btn button-green">Add</button></a>          
   <table class="table table-striped">
     <thead>
       <tr>
@@ -82,7 +101,6 @@ if($conn -> connect_errno){
     while($row_array=mysqli_fetch_assoc($pro_results)){
         ?>
         <tr>
-        <td><?php echo $row_array['id'];?></td>
         <td><?php echo $row_array['name'];?></td>
         <td><?php echo $row_array['category'];?></td>
         <td><?php echo $row_array['stock'];?></td>
@@ -92,8 +110,8 @@ if($conn -> connect_errno){
         <td><?php echo $row_array['status'];?></td>
         <td><?php echo $row_array['created_at'];?></td>
         <td><?php echo $row_array['updated_at'];?></td>
-        <th><button class="btn button-green">Add</button></th>
-        <th><button class="btn button-red">Delete</button></th>
+        <th><a href="insert_product.php"><button class="btn btn-primary">Update</button></a></th>
+        <th><a href="action/delete_pro.php?id=<?php echo $row_array['id'];?>"><button class="btn button-red">Delete</button></a></th>
         </tr>
     <?php
     }
